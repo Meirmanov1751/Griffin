@@ -1,0 +1,16 @@
+version: '3'
+services:
+  django:
+    build: ./backend/qz3_backend
+    ports:
+      - "8000:8000"
+
+  react:
+    build: ./frontend/frontend_react
+    ports:
+      - "3000:3000"
+
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali-container
+    tty: true
