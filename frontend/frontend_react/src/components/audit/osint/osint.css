@@ -1,0 +1,64 @@
+.osint_header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.osint_header-link {
+    color: #3a3a3a;
+    font-size: 25px;
+}
+.continer-osint{
+    padding: 0 30px;
+}
+.tr-link{
+    color: #3a3a3a;
+}
+
+.tableWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-spacing: 0;
+    border: 1px solid #ededed;
+    overflow: scroll;
+    width: 100% !important;
+    height: 70%;
+}
+
+table {
+    width: 1000px !important;/* Задайте желаемую ширину */
+    width: 1000px !important; /* Не позволяйте таблице быть шире, чем родительский контейнер */
+}
+
+th, td , tr{
+    width: 100%; /* Сбросьте автоматическую ширину ячеек */
+}
+
+th, td , tr{
+    word-wrap: break-word;
+}
+
+th, td, tr {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Отображение многоточия, если контент не умещается */
+}
+
+/* Например, задайте ширину для конкретной колонки */
+th:nth-child(1), td:nth-child(1) {
+    width: 20%; /* Задайте желаемую ширину */
+}
+
+tr:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+th {
+    padding: 15px;
+}
+
+td {
+    padding: 5px 10px;
+}
+
