@@ -36,8 +36,25 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
+LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
+if not os.path.exists(LOGGING_DIR):
+    os.makedirs(LOGGING_DIR)
 
-# Application definition
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(LOGGING_DIR, 'app.log'),  # Specify your log file name
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
+    },
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -66,7 +83,12 @@ INSTALLED_APPS = [
     'product',
     'osint',
     'pentesting',
-    'cmd_kali'
+    'cmd_kali',
+    'company',
+    'project',
+    'OWASP',
+    'PTES',
+    'ISSAF'
 ]
 
 MIDDLEWARE = [

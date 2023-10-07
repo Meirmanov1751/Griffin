@@ -94,6 +94,20 @@ code {
   color: #9AAFA8FF;
 }
 
+.title-h1{
+  text-align: left;
+}
+
+.title-h2{
+  text-align: left;
+}
+
+.label-textarea{
+  display: block;
+  margin-left: 50px;
+  text-align: left;
+}
+
 .text {
   text-indent: 20px;
   font-size: 80%;
@@ -105,6 +119,37 @@ code {
   margin: 0 auto;
   line-height: 150%;
   margin-bottom: 40px;
+}
+
+details[open] summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Дополнительные стили для внешнего вида */
+details {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.details-main{
+  background-color: #e0e0e0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.summary-main{
+  font-size: 18px;
+  color: #007bff;
 }
 
 .input {

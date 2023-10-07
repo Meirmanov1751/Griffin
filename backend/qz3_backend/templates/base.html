@@ -152,5 +152,12 @@
 
 {% block content %}
 {% endblock %}
+
+<h1>Log Entries</h1>
+    <pre>
+        {% for log_entry in log_entries %}
+            {{ log_entry }}
+        {% endfor %}
+    </pre>
 </body>
 </html>

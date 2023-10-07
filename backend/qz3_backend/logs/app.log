@@ -1,0 +1,169 @@
+Watching for file changes with StatReloader
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py", line 35, in base
+    log_entries = get_all_log_entries()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py", line 25, in get_all_log_entries
+    log_entries.extend(handler.stream.getvalue().split('\n'))
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_io.TextIOWrapper' object has no attribute 'getvalue'
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py", line 35, in base
+    log_entries = get_all_log_entries()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py", line 25, in get_all_log_entries
+    log_entries.extend(handler.stream.getvalue().split('\n'))
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_io.TextIOWrapper' object has no attribute 'getvalue'
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+Not Found: /img/icon3.jpg
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+Not Found: /img/icon3.jpg
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+Not Found: /img/icon3.jpg
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+Not Found: /img/icon3.jpg
+This is a debug message
+This is an info message
+This is a warning message
+This is an error message
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+This is an error message.
+This is a warning message.
+This is an info message.
+Not Found: /img/icon3.jpg
+This is an error message.
+This is a warning message.
+This is an info message.
+This is an error message.
+This is a warning message.
+This is an info message.
+Not Found: /img/icon3.jpg
+This is an error message.
+This is a warning message.
+This is an info message.
+This is an error message.
+This is a warning message.
+This is an info message.
+Not Found: /img/icon3.jpg
+This is an error message.
+This is a warning message.
+This is an info message.
+This is an error message.
+This is a warning message.
+This is an info message.
+Not Found: /img/icon3.jpg
+This is an error message.
+This is a warning message.
+This is an info message.
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /favicon.ico
+Not Found: /img/icon3.jpg
+Not Found: /favicon.ico
+Not Found: /img/icon3.jpg
+Not Found: /favicon.ico
+Not Found: /img/icon3.jpg
+Not Found: /favicon.ico
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Not Found: /img/icon3.jpg
+Unauthorized: /auth/users/
+Unauthorized: /auth/users/
+Not Found: /img/icon3.jpg
+E:\Documents\2023\qz3.0\main\backend\qz3_backend\qz3_back-end\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Watching for file changes with StatReloader
+Not Found: /img/icon3.jpg
+Not Found: /favicon.ico

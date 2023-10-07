@@ -44,6 +44,7 @@ const CommandConsole = () => {
           background-color: #222;
           color: #fff;
           padding: 10px;
+          margin: 0 50px;
           border-radius: 5px;
         }
 

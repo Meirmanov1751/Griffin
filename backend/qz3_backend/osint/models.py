@@ -1,6 +1,11 @@
 from django.db import models
 
+from project.models import Project
+
+
 class Osint(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="Osint")
     organizationName = models.CharField(max_length=200, null=True, blank=True)
     personName = models.CharField(max_length=200, null=True, blank=True)
     goalsAndTasks = models.TextField(null=True, blank=True)

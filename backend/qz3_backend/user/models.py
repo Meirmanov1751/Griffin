@@ -36,12 +36,12 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     class ROLES:
         EXECUTOR = 'executor'
-        STUDENT = 'student'
+        AUDITOR = 'auditor'
         SUPER_ADMIN = 'super_admin'
 
         ROLES_CHOICES = (
             (SUPER_ADMIN, 'Супер әкімші'),
-            (EXECUTOR, 'Орындаушы'), (STUDENT, 'Студент'),
+            (EXECUTOR, 'Орындаушы'), (AUDITOR, 'Аудитор'),
         )
 
     first_name = models.CharField(max_length=100)
@@ -52,7 +52,7 @@ class User(AbstractBaseUser):
 
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=20, choices=ROLES.ROLES_CHOICES,
-                            default=ROLES.STUDENT)
+                            default=ROLES.EXECUTOR)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
@@ -85,8 +85,8 @@ class User(AbstractBaseUser):
         return self.role == User.ROLES.EXECUTOR
 
     @property
-    def is_student(self):
-        return self.role == User.ROLES.STUDENT
+    def is_auditor(self):
+        return self.role == User.ROLES.AUDITOR
 
     class Meta:
         verbose_name = 'Пользователь'
