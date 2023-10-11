@@ -40,11 +40,13 @@ const CommandConsole = () => {
             </div>
             <style jsx>{`
         .console {
-          height: 90vh;
+            
+          box-sizing: border-box;
+          height: 40vh;
           background-color: #222;
           color: #fff;
           padding: 10px;
-          margin: 0 50px;
+          margin: 0 5px;
           border-radius: 5px;
         }
 
@@ -86,6 +88,10 @@ const CommandConsole = () => {
         .console-output pre {
           white-space: pre-wrap;
           word-wrap: break-word;
+        }
+        
+        pre{
+        height: 28vh;
         }
       `}</style>
         </div>

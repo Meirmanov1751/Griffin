@@ -1,7 +1,9 @@
 .osint_header {
     display: flex;
     justify-content: space-between;
-
+    border: 1px solid #3a3a3a;
+    border-right: none;
+    border-left: none;
 }
 
 .osint_header-link {

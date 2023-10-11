@@ -4,6 +4,10 @@ from company.models import Company
 
 
 # Create your models here.
+class Project:
+    pass
+
+
 class Project(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True,
                                 related_name="Project")

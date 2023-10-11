@@ -10,7 +10,7 @@ class AuthService {
                 localStorage.setItem('accessToken', response.data.access);
                 console.log(localStorage.getItem('accessToken'));
                 localStorage.setItem('refreshToken', response.data.refresh);
-                window.location.href = '/';
+                window.location.href = '/audit';
                 return response.data;
             }).catch(e => alert("Не правильно ввели данные"));
     }

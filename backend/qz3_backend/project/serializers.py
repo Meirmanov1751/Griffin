@@ -1,21 +1,42 @@
 from rest_framework import serializers
 
+from osint.serializers import OsintSerializer
+from pentesting.serializers import PentestListSerializer
 from .models import Project
 
 
 class ProjectListSerializer(serializers.ModelSerializer):
-    # customer = serializers.SlugRelatedField(slug_field='first_name', read_only=True)
-    # products = serializers.SlugRelatedField(slug_field='name', many=True, read_only=True)
+    pentest = PentestListSerializer(read_only=True, many=True)
+    Osint = OsintSerializer(read_only=True, many=True)
 
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = [
+            'id',
+            'company',
+            'name',
+            'leader',
+            'created_at',
+            'updated_at',
+            'pentest',
+            'Osint',
+        ]
+
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    # customer = serializers.SlugRelatedField(slug_field='first_name', read_only=True)
-    # products = serializers.SlugRelatedField(slug_field='name',many=True, read_only=True)
+    pentest = PentestListSerializer(read_only=True, many=True)
+    Osint = OsintSerializer(read_only=True, many=True)
 
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = [
+            'id',
+            'company',
+            'name',
+            'leader',
+            'created_at',
+            'updated_at',
+            'pentest',
+            'Osint',
+        ]

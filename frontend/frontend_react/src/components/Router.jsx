@@ -39,17 +39,18 @@ import CommandConsole from "./cmd kali linux/CommandConsole";
 import PentestNew from "./audit/pentest/new/new";
 import PentestList from "./audit/pentest/list/pentest";
 import PentestDoc from "./audit/pentest/list/osintDoc/pentestDoc";
+import ProjectItem from "./audit/home/project/projectItem/projectItem";
 
 
 const Router = () => {
-    const dispatch = useDispatch();
     var user = useSelector(state => state.auth)
     let navigate = useNavigate();
+    let dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchReferenceType());
-        dispatch(fetchBypassSheet());
     }, []);
+
 
     useEffect(() => {
         if(window.count == 1){
@@ -89,6 +90,7 @@ const Router = () => {
                             </Route>
                             <Route path={'new'} element={<PentestNew/>}></Route>
                         </Route>
+                        <Route path={'project/:id'} element={<ProjectItem/>}></Route>
                         <Route path={'docs'} element={<DocsAudit/>}>
                             <Route path={''} element={<AuditDocsMain/>}></Route>
                             <Route path={'osint'} element={<OsintDocs/>}>

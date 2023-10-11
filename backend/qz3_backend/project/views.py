@@ -17,9 +17,9 @@ class ProjectViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Retr
         if self.request.method == 'GET':
             return ProjectListSerializer
         elif self.request.method == 'POST':
-            return CProjectSerializer
+            return ProjectSerializer
         else:
-            return OrderSerializer
+            return ProjectListSerializer
 
     def get_permissions(self):
         if self.action == 'list':

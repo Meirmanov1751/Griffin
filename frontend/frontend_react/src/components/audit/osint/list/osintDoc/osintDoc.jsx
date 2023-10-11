@@ -1,79 +1,65 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
-import {useSelector} from "react-redux";
-import axios from "axios";
+import {useParams} from 'react-router-dom';
 import instance from "../../../../../store/api";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import {Trans} from "react-i18next";
 
 
-// clickjacking
-//     :
-//     false
-// csrf
-//     :
-//     false
-// dataCollection
-//     :
-//     ""
-// dataFilteringAndAnalysis
-//     :
-//     ""
-// dataStorage
-//     :
-//     ""
-// goalsAndTasks
-//     :
-//     ""
-// id
-//     :
-//     7
-// info
-//     :
-//     null
-// open_ports
-//     :
-//     null
-// organizationName
-//     :
-//     "Забытые ботинки. Король и Шут"
-// personName
-//     :
-//     "erg"
-// sql_injection
-//     :
-//     false
-// url
-//     :
-//     ""
-// xss
-//     :
-//     false
-
-const OsintDoc= () => {
-    const { id } = useParams();
+const OsintDoc = () => {
+    const {id} = useParams();
     const [osint, setOsint] = useState({})
 
-    useEffect(function (){
+
+    const downloadPDF = (id) => {
+        const capture = document.querySelector(`#actual-receipt${osint.id}`);
+        html2canvas(capture).then((canvas) => {
+            const imgData = canvas.toDataURL('img/png');
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const componentWidth = doc.internal.pageSize.getWidth();
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, 'PNG', 0, 10, componentWidth, componentHeight );
+            doc.save('receipt.pdf');
+        })
+    }
+
+    useEffect(function () {
         UrlHandler()
-    },[])
+    }, [])
 
     function UrlHandler() {
-
-
-            instance.get('http://localhost:8000/api/osint/osint/' + id +"/")
-                .then(res => {
-                    setOsint(res.data);
-                })
-
-
-
+        instance.get('api/osint/osint/' + id + "/")
+            .then(res => {
+                setOsint(res.data);
+            })
     }
+
     console.log(osint)
     return (
-        <div className={"continer"}>
-            <h1 className={"title"}>{osint.id}</h1>
-            <h1 className={"title"}>{osint.organizationName}</h1>
-            <h1 className={"title"}>{osint.dataFilteringAndAnalysis}</h1>
-            <h1 className={"title"}>{osint.personName}</h1>
+        <div className="company-container">
+            <div id={`actual-receipt${osint.id}`}>
+                <h1>Детали проекта</h1>
+                <div className="company-info">
+                    <h2>Название организации: {osint.organizationName}</h2>
+                    <p>Имя лица: {osint.personName}</p>
+                    <p>Цели и задачи: {osint.goalsAndTasks}</p>
+                    <p>Сбор данных: {osint.dataCollection}</p>
+                    <p>Фильтрация и анализ данных: {osint.dataFilteringAndAnalysis}</p>
+                    <p>Хранение данных: {osint.dataStorage}</p>
+                    <p>URL: {osint.url}</p>
+                </div>
+
+                <div className="security-info">
+                    <h2>Информация о безопасности</h2>
+                    <p>Clickjacking: {osint.clickjacking ? "Да" : "Нет"}</p>
+                    <p>CSRF: {osint.csrf ? "Да" : "Нет"}</p>
+                    <p>SQL Injection: {osint.sql_injection ? "Да" : "Нет"}</p>
+                    <p>XSS: {osint.xss ? "Да" : "Нет"}</p>
+                </div>
+            </div>
+            <button style={{fontSize: "13px"}} className={'btn btn-primary'} onClick={downloadPDF}><Trans i18nKey="btns.PDF">
+                Скачать PDF
+            </Trans></button>
         </div>
     );
 };
