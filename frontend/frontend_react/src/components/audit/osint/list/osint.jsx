@@ -37,32 +37,7 @@ const OsintList = () => {
             {
                 Header: 'URL',
                 accessor: 'url',
-            },
-            {
-                Header: 'Clickjacking',
-                accessor: 'clickjacking',
-            },
-            {
-                Header: 'CSRF',
-                accessor: 'csrf',
-            },
-            {
-                Header: 'Info',
-                accessor: 'info',
-                Cell: ({value}) => JSON.stringify(value),
-            },
-            {
-                Header: 'Open Ports',
-                accessor: 'open_ports',
-            },
-            {
-                Header: 'SQL Injection',
-                accessor: 'sql_injection',
-            },
-            {
-                Header: 'XSS',
-                accessor: 'xss',
-            },
+            }
             // Добавьте другие колонки, если необходимо
         ],
         []
@@ -102,13 +77,13 @@ const OsintList = () => {
                         return (
                             <tr {...row.getRowProps()}>
                                 <Link className={"tr-link"} to={`osint/${row.original.id}`}>
-                                {row.cells.map(cell => {
-                                    return (
+                                    {row.cells.map(cell => {
+                                        return (
 
                                             <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
 
-                                    );
-                                })}
+                                        );
+                                    })}
                                 </Link>
                             </tr>
                         );

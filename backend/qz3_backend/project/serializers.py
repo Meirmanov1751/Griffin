@@ -7,7 +7,7 @@ from .models import Project
 
 class ProjectListSerializer(serializers.ModelSerializer):
     pentest = PentestListSerializer(read_only=True, many=True)
-    Osint = OsintSerializer(read_only=True, many=True)
+    osints = OsintSerializer(read_only=True, many=True)
 
     class Meta:
         model = Project
@@ -19,14 +19,14 @@ class ProjectListSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'pentest',
-            'Osint',
+            'osints',
         ]
 
 
 
 class ProjectSerializer(serializers.ModelSerializer):
     pentest = PentestListSerializer(read_only=True, many=True)
-    Osint = OsintSerializer(read_only=True, many=True)
+    osints = OsintSerializer(read_only=True, many=True)
 
     class Meta:
         model = Project
@@ -38,5 +38,5 @@ class ProjectSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'pentest',
-            'Osint',
+            'osints',
         ]

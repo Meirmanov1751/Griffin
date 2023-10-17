@@ -10,6 +10,8 @@ const Project = () => {
         setProject(response.data.results)
     }
 
+
+
     useEffect(() => {
         getCompanyInfo()
     }, [])

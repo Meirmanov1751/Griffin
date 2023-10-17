@@ -81,6 +81,9 @@ const Router = () => {
                             <Route path={'osint'} element={<OsintDoc/>}>
                                 <Route path={':id'} element={<OsintDoc></OsintDoc>}/>
                             </Route>
+                            <Route path={'edit'} element={<OsintNew/>}>
+                                <Route path={':id'} element={<OsintNew></OsintNew>}/>
+                            </Route>
                             <Route path={'new'} element={<OsintNew/>}></Route>
                         </Route>
                         <Route path={'Pentest'} element={<Pentest/>}>
@@ -88,13 +91,15 @@ const Router = () => {
                             <Route path={'pentest'} element={<PentestDoc/>}>
                                 <Route path={':id'} element={<PentestDoc></PentestDoc>}/>
                             </Route>
+                            <Route path={'edit'} element={<PentestNew/>}>
+                                <Route path={':id'} element={<PentestNew></PentestNew>}/>
+                            </Route>
                             <Route path={'new'} element={<PentestNew/>}></Route>
                         </Route>
                         <Route path={'project/:id'} element={<ProjectItem/>}></Route>
                         <Route path={'docs'} element={<DocsAudit/>}>
                             <Route path={''} element={<AuditDocsMain/>}></Route>
                             <Route path={'osint'} element={<OsintDocs/>}>
-
                             </Route>
                             <Route path={'pentest'} element={<PentestDocs/>}></Route>
                         </Route>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import instance from "../../../../../store/api";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -37,6 +37,7 @@ const OsintDoc = () => {
     console.log(osint)
     return (
         <div className="company-container">
+            <h2><Link to={'/audit/OSINT/edit/' + osint.id}>Изменить</Link></h2>
             <div id={`actual-receipt${osint.id}`}>
                 <h1>Детали проекта</h1>
                 <div className="company-info">

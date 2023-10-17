@@ -48,7 +48,7 @@ const ProjectItem = () => {
 
             <div className="osint-section">
                 {
-                    project && project.Osint && project.Osint.map((Osint) => (
+                    project && project.osints && project.osints.map((Osint) => (
                         <div className={"project_arr--item"}>
                             <Link to={`/audit/OSINT/osint/${Osint.id}`} className={"project_arr--item"}>
                                 <h3>Osint {Osint && Osint.id}</h3>

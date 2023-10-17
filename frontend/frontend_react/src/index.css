@@ -56,6 +56,13 @@ code {
     margin: 0 auto;
     max-width: 1230px;
     padding: 0 15px;
+    margin-bottom: 50px;
+}
+
+.continer_osint{
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-bottom: 50px;
 }
 
 .main_btn {
@@ -106,7 +113,7 @@ code {
     text-align: left;
 }
 
-.title-h2 p{
+.title-h2 p {
     margin-left: 30px;
 }
 
@@ -162,10 +169,9 @@ summary {
 
 
 .input {
-    width: 85%;
+    width: 94%;
     min-height: 30px;
     font-size: 22px;
-    box-shadow: -1px 0px 7px 0px #9AAFA8FF;
     padding: 2px 15px;
 }
 
@@ -197,7 +203,6 @@ summary {
     font-weight: 700;
     cursor: pointer;
     font-size: 22px;
-    box-shadow: -1px 0px 7px 0px #9AAFA8FF;
     padding: 2px 15px;
 }
 
@@ -401,10 +406,20 @@ summary {
 }
 
 .btn_add--req {
+    cursor: pointer;
     width: 100%;
     height: 50px;
     color: white;
     background-color: #007bff;
+}
+
+.btn_add--add{
+    font-size: 24px;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    color: #555;
+    border: none;
 }
 
 .code_block--pentest {
@@ -432,6 +447,7 @@ summary {
 
 .form_pentest {
     display: flex;
+    margin-bottom: 20px;
 }
 
 input[type="file"] {
@@ -529,6 +545,13 @@ input[type="file"] {
     background-color: #5c5c5c;
 }
 
+.details-terminal_osint {
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-color: #5c5c5c;
+}
+
 .button_terminal--div {
     display: flex;
     justify-content: space-between;
@@ -557,7 +580,7 @@ input[type="file"] {
     justify-content: space-between;
 }
 
-.icon_terminal{
+.icon_terminal {
     background: white;
     color: #5c5c5c;
     padding: 1px;
@@ -565,12 +588,12 @@ input[type="file"] {
 
 }
 
-.terminal_minimize{
+.terminal_minimize {
     padding: 0 10px;
     font-weight: 400;
 }
 
-.span_terminal{
+.span_terminal {
     margin-right: 20px;
     padding: 4px;
 }
@@ -663,83 +686,92 @@ select option:hover {
     background-color: #f0f0f0;
 }
 
-.company_name{
-    color: #005f44 ;
+.company_name {
+    color: #005f44;
     text-align: left;
 }
 
-.home_audit{
+.home_audit {
     padding: 50px;
     border-bottom: 1px solid #434a48;
 }
 
-.home_logo{
+.home_logo {
 
 }
 
 
-.project_card{
+.project_card {
     display: block;
 
     background-color: #9aafa8;
     margin: 10px 80px;
 }
-.project_title{
+
+.project_title {
     text-align: left;
     margin-left: 50px;
 }
-.project_item{
+
+.project_item {
     padding: 20px 20px;
     border-bottom: 1px solid #222;
 }
 
-.project_item:hover{
+.project_item:hover {
     background-color: #a5b0af;
 }
 
-.continer_project{
+.continer_project {
     margin: 0 30px;
     width: 100%;
     padding: 0 20px;
     text-align: left;
 }
 
-.continer_project p{
+.continer_project p {
     font-size: 16px;
     color: #555;
     margin: 5px 20px;
 }
 
-.continer_project b{
+.continer_project b {
     color: #6c6b6b;
 }
 
-.project_h1{
+.project_h1 {
     font-size: 24px;
     color: #333;
     margin: 20px 0 20px;
 }
 
-.project_h2{
+.project_h2 {
     font-size: 20px;
     color: #666;
     margin-top: 10px;
 }
 
-.project_arr--item{
+.project_arr--item {
     border-bottom: 1px solid #555;
     color: #555;
 }
 
-.project_arr--item p{
+.project_arr--item p {
     margin: 0 15px;
     padding: 0 15px;
     font-size: 16px;
     color: #555;
 }
 
-.metodology_sub{
+.metodology_sub {
     border: none;
+}
+
+.metodology_add{
+    width: 100%;
+    border: none;
+    background-color: white;
+    text-align: center;
 }
 
 .company-container {
@@ -777,3 +809,8 @@ select option:hover {
     margin: 5px 0;
 }
 
+
+.form_osint--div {
+    width: 100vw;
+    padding: 0 10px;
+}

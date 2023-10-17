@@ -5,7 +5,7 @@ from pentesting.models import Pentest
 
 # Create your models here.
 class Injection(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True, related_name="injection")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True, related_name="OWASP_injection")
     sql_injection = models.TextField(blank=True, null=True)
     cross_site_scripting = models.TextField(blank=True, null=True)
     xml_injection = models.TextField(blank=True, null=True)
@@ -22,8 +22,8 @@ class Injection(models.Model):
 
 
 class AuthenticationViolation(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="AuthenticationViolation")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_AuthenticationViolation")
     insufficient_authentication = models.TextField(blank=True, null=True)
     insecure_session_management = models.TextField(blank=True, null=True)
     no_session_timeout = models.TextField(blank=True, null=True)
@@ -38,8 +38,8 @@ class AuthenticationViolation(models.Model):
 
 
 class SensitiveDataExposure(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="SensitiveDataExposure")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_SensitiveDataExposure")
     insufficient_data_encryption = models.TextField(blank=True, null=True)
     weak_encryption_algorithms = models.TextField(blank=True, null=True)
     insecure_password_storage = models.TextField(blank=True, null=True)
@@ -54,7 +54,7 @@ class SensitiveDataExposure(models.Model):
 
 
 class XXEViolation(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True, related_name="XXEViolation")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True, related_name="OWASP_XXEViolation")
     external_xml_entities = models.TextField(blank=True, null=True)
     incorrect_data_filtering = models.TextField(blank=True, null=True)
     remote_file_system_access = models.TextField(blank=True, null=True)
@@ -73,8 +73,8 @@ class XXEViolation(models.Model):
 
 
 class AccessControlViolation(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="AccessControlViolation")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_AccessControlViolation")
     insufficient_role_and_permissions_separation = models.TextField(blank=True, null=True)
     insufficient_data_access_control = models.TextField(blank=True, null=True)
     lack_of_privilege_escalation_protection = models.TextField(blank=True, null=True)
@@ -91,8 +91,8 @@ class AccessControlViolation(models.Model):
 
 
 class SecurityMisconfiguration(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="SecurityMisconfiguration")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_SecurityMisconfiguration")
     open_ports_and_services = models.TextField(blank=True, null=True)
     default_passwords_and_accounts = models.TextField(blank=True, null=True)
     insufficient_directory_and_file_protection = models.TextField(blank=True, null=True)
@@ -112,8 +112,8 @@ class SecurityMisconfiguration(models.Model):
 
 
 class XSSAttack(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="XSSAttack")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_XSSAttack")
     reflected_xss = models.TextField(blank=True, null=True)
     stored_xss = models.TextField(blank=True, null=True)
     dom_based_xss = models.TextField(blank=True, null=True)
@@ -132,8 +132,8 @@ class XSSAttack(models.Model):
 
 
 class InsecureDeserializationAttack(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="InsecureDeserializationAttack")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_InsecureDeserializationAttack")
     deserialization_without_data_check = models.TextField(blank=True, null=True)
     malicious_code_execution = models.TextField(blank=True, null=True)
     data_modification = models.TextField(blank=True, null=True)
@@ -152,8 +152,8 @@ class InsecureDeserializationAttack(models.Model):
 
 
 class KnownVulnerabilities(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="KnownVulnerabilities")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_KnownVulnerabilities")
     outdated_component_versions = models.TextField(blank=True, null=True)
     lack_of_update_monitoring = models.TextField(blank=True, null=True)
     components_with_known_vulnerabilities = models.TextField(blank=True, null=True)
@@ -172,8 +172,8 @@ class KnownVulnerabilities(models.Model):
 
 
 class SecurityLogging(models.Model):
-    pentest = models.ForeignKey(Pentest, on_delete=models.CASCADE, null=True, blank=True,
-                                related_name="SecurityLogging")
+    pentest = models.OneToOneField(Pentest, on_delete=models.CASCADE, null=True, blank=True,
+                                related_name="OWASP_SecurityLogging")
     insufficient_event_logging = models.TextField(blank=True, null=True)
     lack_of_alerts_and_notifications = models.TextField(blank=True, null=True)
     delay_in_incident_detection = models.TextField(blank=True, null=True)

@@ -1,12 +1,10 @@
 import React from 'react';
 import OsintInput from "./osintInput/osint";
-import {Link} from "react-router-dom";
-import {NavLink} from "react-router-dom";
 
 const OsintNew = () => {
 
     return (
-        <div className={"continer"}>
+        <div className={"continer_osint"}>
             <OsintInput/>
         </div>
     );
