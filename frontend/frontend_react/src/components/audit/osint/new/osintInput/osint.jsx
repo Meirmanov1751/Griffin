@@ -77,16 +77,31 @@ const OsintInput = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await instance.post('api/osint/osint/', Object.assign({}, formData, data));
-            debugger
-            // Обработка успешного ответа от сервера
-            console.log(response.data);
-            localStorage.setItem('osintNewId', response.data.id)
-        } catch (error) {
-            // Обработка ошибок при отправке запроса
-            console.error(error);
+        if(!id){
+            try {
+                const response = await instance.post('api/osint/osint/', Object.assign({}, formData, data));
+                debugger
+                // Обработка успешного ответа от сервера
+                console.log(response.data);
+                localStorage.setItem('osintNewId', response.data.id)
+            } catch (error) {
+                // Обработка ошибок при отправке запроса
+                console.error(error);
+            }
+        }else{
+            try {
+                const response = await instance.put('api/osint/osint/' + id + '/', Object.assign({}, formData, data));
+                debugger
+                // Обработка успешного ответа от сервера
+                console.log(response.data);
+                localStorage.setItem('osintNewId', response.data.id)
+            } catch (error) {
+                // Обработка ошибок при отправке запроса
+                console.error(error);
+            }
         }
+        debugger
+
         console.log(formData)
         console.log(data)
     };
