@@ -13,6 +13,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
         model = Project
         fields = [
             'id',
+            'logo',
             'company',
             'name',
             'leader',
@@ -20,6 +21,10 @@ class ProjectListSerializer(serializers.ModelSerializer):
             'updated_at',
             'pentest',
             'osints',
+            'policy',
+            'standard',
+            'procedure',
+            'bpassSheet',
         ]
 
 
@@ -32,6 +37,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = [
             'id',
+            'logo',
             'company',
             'name',
             'leader',
@@ -39,4 +45,8 @@ class ProjectSerializer(serializers.ModelSerializer):
             'updated_at',
             'pentest',
             'osints',
+            'policy',
+            'standard',
+            'procedure',
+            'bpassSheet',
         ]

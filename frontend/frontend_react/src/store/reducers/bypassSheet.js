@@ -32,7 +32,7 @@ const error = (state = null, action) => {
             return action.payload;
         case FETCH_BYPASS_SHEET_REQUEST:
         case FETCH_BYPASS_SHEET_SUCCESS:
-            return null;
+            return () => {}
         default:
             return state;
     }

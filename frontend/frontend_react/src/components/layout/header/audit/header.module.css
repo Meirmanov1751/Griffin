@@ -7,6 +7,7 @@ a{
   width: 100%;
   height: 40px;
   background-color: #ffffff;
+  box-shadow: 1px 1px 0px 0px #E8E8E8;
 }
 .header__inner{
   height: 40px;
@@ -15,21 +16,26 @@ a{
   align-items: center;
 }
 .header__btn{
-  color: #272822;
-  font-size: 22px;
+  cursor: pointer !important;
+  font-family: HelveticaNeueCyr;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
   line-height: 24px;
+  color: #282c34;
 }
 .header__btn:hover{
-  color: #3a3a3a;
+  color: #097CB4;
 }
 .header__btn+.header__btn{
-  margin-left: 50px;
+  margin-left: 20px;
   padding: 4px 10px;
   color: #282c34;
 }
 
 .header__btn+.header__btn:hover{
-  color: #3a3a3a;
+  color: #097CB4;
 }
 
 @media (max-width: 540px) {

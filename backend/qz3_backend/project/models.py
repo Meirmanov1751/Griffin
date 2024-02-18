@@ -9,6 +9,7 @@ class Project:
 
 
 class Project(models.Model):
+    logo = models.FileField(upload_to='logo/', null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True,
                                 related_name="Project")
     name = models.TextField(blank=True, null=True)

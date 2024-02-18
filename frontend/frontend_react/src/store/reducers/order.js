@@ -32,7 +32,7 @@ const error = (state = null, action) => {
             return action.payload;
         case FETCH_ORDER_REQUEST:
         case FETCH_ORDER_SUCCESS:
-            return null;
+            return () => {};
         default:
             return state;
     }

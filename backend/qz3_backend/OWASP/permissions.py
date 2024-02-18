@@ -8,7 +8,6 @@ class IsManagementCompany(BasePermission):
 
 class IsExecutive(BasePermission):
     def has_permission(self, request, view):
-        print(request.user.role == 'executor')
         return request.user.role == 'executor'
 
 
@@ -19,8 +18,7 @@ class IsCustomer(BasePermission):
 
 class IsSuperAdmin(BasePermission):
     def has_permission(self, request, view):
-        print(request.user.role)
-        print(request.user.role == 'super_admin')
+
         return request.user.role == 'super_admin' or request.user.role == 'super_admin'
 
 

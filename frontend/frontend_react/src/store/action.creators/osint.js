@@ -25,11 +25,10 @@ export const fetchOsint = () => async (dispatch) => {
 
     try {
         const response = await instance.get(`/api/osint/osint/`);
-        // const data = await response.json();
-        // console.log(data)
+
 
         dispatch(fetchOsintSuccess(response.data.results));
-        debugger
+
     } catch (error) {
         dispatch(fetchOsintFailure(error));
     }

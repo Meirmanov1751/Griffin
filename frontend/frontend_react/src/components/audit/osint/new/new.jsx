@@ -4,7 +4,7 @@ import OsintInput from "./osintInput/osint";
 const OsintNew = () => {
 
     return (
-        <div className={"continer_osint"}>
+        <div style={{padding: '10px'}} className={"newStyle_background"}>
             <OsintInput/>
         </div>
     );

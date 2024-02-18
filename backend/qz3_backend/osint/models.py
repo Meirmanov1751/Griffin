@@ -12,7 +12,8 @@ class Osint(models.Model):
     dataCollection = models.TextField(null=True, blank=True, verbose_name="Сбор данных")
     dataFilteringAndAnalysis = models.TextField(null=True, blank=True, verbose_name="Фильтрация и анализ данных")
     dataStorage = models.TextField(null=True, blank=True, verbose_name="Хранение данных")
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return f'{self.organizationName} | {self.personName} | {self.goalsAndTasks}'
 
@@ -22,7 +23,7 @@ class Osint(models.Model):
         ordering = ['organizationName']
 
 class Source(models.Model):
-    osint = models.ForeignKey(Osint, on_delete=models.CASCADE, related_name="source", verbose_name="OSINT")
+    osint = models.ForeignKey(Osint, on_delete=models.CASCADE, related_name="source", verbose_name="source")
     source_name = models.CharField(null=True, blank=True, max_length=100, verbose_name="Название источника")
     source_url = models.URLField(null=True, blank=True, verbose_name="URL источника")
     source_description = models.TextField(null=True, blank=True, verbose_name="Описание источника")

@@ -10,7 +10,7 @@ const ReferenceItem = ({references, referenceTypeList}) => {
     var user = useSelector(state => state.auth.user)
     var createdAt = new Date(references.created_at)
     var date = `${createdAt.getDate()}:${createdAt.getMonth()}:${createdAt.getFullYear()}`
-    debugger
+
     useEffect(() => {
         dispatch(fetchReferenceType());
     }, [dispatch]);

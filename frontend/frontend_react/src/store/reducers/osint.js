@@ -32,7 +32,7 @@ const error = (state = null, action) => {
             return action.payload;
         case FETCH_OSINT_REQUEST:
         case FETCH_OSINT_SUCCESS:
-            return null;
+            return () => {};
         default:
             return state;
     }

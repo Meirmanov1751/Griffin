@@ -27,6 +27,8 @@ from pentesting.urls import router as pentest_router
 from OWASP.urls import router as OWASP_router
 from ISSAF.urls import router as ISSAF_router
 from PTES.urls import router as PTES_router
+from PCOPT.urls import router as PCOPT_router
+from security.urls import router as security_router
 
 from two_factor.urls import urlpatterns as tf_urls
 
@@ -58,6 +60,8 @@ router.registry.extend(pentest_router.registry)
 router.registry.extend(OWASP_router.registry)
 router.registry.extend(ISSAF_router.registry)
 router.registry.extend(PTES_router.registry)
+router.registry.extend(PCOPT_router.registry)
+router.registry.extend(security_router.registry)
 
 urlpatterns = [
                   path('', base),
@@ -73,5 +77,6 @@ urlpatterns = [
                   path('OSINT/', OSINTView),
                   path('cmd_kali/', executeCommandView),
                   path('pentesting/', include("pentesting.urls")),
+                  path('osint/', include("osint.urls")),
                   path('admin/', admin.site.urls),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

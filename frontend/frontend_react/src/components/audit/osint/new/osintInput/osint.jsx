@@ -1,15 +1,16 @@
 import React, {useEffect, useRef, useState} from 'react';
-import load from '../../../../../assets/img/load.gif'
+import load from '../../../../../assets/img/load-old.gif'
 import instance from "../../../../../store/api";
 import CommandConsole from "../../../../cmd kali linux/CommandConsole";
-import Source from "./Source/source";
 import {useParams} from "react-router-dom";
-
+import Source from "./Source/source";
+import Whois from "./tests/whois/whois";
+import Lookup from "./tests/lookup/lookup";
 
 
 const OsintInput = () => {
     let {id} = useParams()
-    localStorage.setItem('osintNewId', '')
+
     const [formData, setFormData] = useState({
         organizationName: '',
         project: 1,
@@ -30,9 +31,11 @@ const OsintInput = () => {
 
     async function getOsint() {
         try {
-            const response = await instance.get('api/osint/osint/'+ id + '/');
+            const response = await instance.get('api/osint/osint/' + id + '/');
             // Обработка успешного ответа от сервера
             setFormData(response.data)
+            setActivePt(true)
+            localStorage.setItem('osintNewId', id)
             console.log(response.data);
         } catch (error) {
             // Обработка ошибок при отправке запроса
@@ -41,7 +44,7 @@ const OsintInput = () => {
     }
 
     useEffect(() => {
-        if(id){
+        if (id) {
             getOsint()
         }
         getProject()
@@ -59,6 +62,7 @@ const OsintInput = () => {
 
     const [data, setData] = useState("")
     const [loading, setLoading] = useState("")
+
     console.log(data)
 
     function UrlHandler() {
@@ -75,35 +79,31 @@ const OsintInput = () => {
 
     }
 
+    const [activePt, setActivePt] = useState(false)
+    const [adding, setAdding] = useState(false)
     const handleSubmit = async (e) => {
+        setAdding(true)
         e.preventDefault();
-        if(!id){
+        if (!id && !localStorage.getItem('osintNewId')) {
             try {
                 const response = await instance.post('api/osint/osint/', Object.assign({}, formData, data));
-                debugger
-                // Обработка успешного ответа от сервера
-                console.log(response.data);
                 localStorage.setItem('osintNewId', response.data.id)
+                console.log(localStorage.getItem('osintNewId'));
+                setActivePt(true)
+                setAdding(false)
             } catch (error) {
-                // Обработка ошибок при отправке запроса
                 console.error(error);
             }
-        }else{
+        } else {
             try {
-                const response = await instance.put('api/osint/osint/' + id + '/', Object.assign({}, formData, data));
-                debugger
-                // Обработка успешного ответа от сервера
-                console.log(response.data);
+                let result = id ? id : localStorage.getItem('osintNewId')
+                const response = await instance.put('api/osint/osint/' + result + '/', Object.assign({}, formData, data));
                 localStorage.setItem('osintNewId', response.data.id)
+                setAdding(false)
             } catch (error) {
-                // Обработка ошибок при отправке запроса
                 console.error(error);
             }
         }
-        debugger
-
-        console.log(formData)
-        console.log(data)
     };
 
     const [isConsoleVisible, setIsConsoleVisible] = useState(false);
@@ -133,22 +133,83 @@ const OsintInput = () => {
     };
 
     return (
-        <div class="company-container">
+        <div className={adding ? 'adding' : null}>
 
-            <form className={"form_pentest"} onSubmit={handleSubmit}>
-                <div style={{margin: '0 auto'}}>
-                    <input
-                        className={"input"}
-                        type={"search"}
-                        name="url"
-                        ref={inputs}
-                        value={formData.url}
-                        onChange={handleChange}
-                        placeholder={"OSINT үшін URL мекенжайыңызды енгізіңіз"}
-                    />
-                    <a className={"submit--btn"} value={">"} onClick={UrlHandler}>
-                        <i className="fa fa-terminal" aria-hidden="true"></i>
-                    </a>
+            <details className={'details-main'}>
+                <summary className={'summary-main'}>
+                    Google Dorks <i className="fa fa-google" aria-hidden="true"></i> - это набор запросов для выявления
+                    грубейших дыр в безопасности.
+                </summary>
+                <pre style={{textAlign: 'left'}}>
+            site: - Позволяет ограничить поиск результатами только с определенного веб-сайта. Например, site:example.com
+                ищет информацию только на сайте example.com.
+            <hr/>
+            filetype: - Используется для поиска файлов определенного типа. Например, filetype:pdf найдет все PDF-файлы в
+                результатах поиска.
+            <hr/>
+            intext: - Используется для поиска страниц, содержащих определенное слово или фразу. Например,
+                intext:"confidential" site:example.com ищет страницы на сайте example.com, содержащие слово "confidential".
+            <hr/>
+            intitle: - Используется для поиска страниц с определенным заголовком. Например, intitle:"login page"
+                ищет страницы с заголовком "login page".
+            <hr/>
+            inurl: - Используется для поиска страниц с определенным URL. Например, inurl:admin ищет страницы, в URL
+                которых есть "admin".
+            <hr/>
+            related: - Позволяет найти веб-сайты, связанные с определенным сайтом. Например, related:example.com найдет
+                сайты, связанные с example.com.
+            <hr/>
+            cache: - Позволяет просмотреть кэшированную версию веб-страницы. Например, cache:example.com покажет
+                кэшированные страницы с сайта example.com.
+            <hr/>
+            ext: - Используется для поиска страниц с определенным расширением файла. Например, ext:php ищет страницы с
+                PHP-расширением.
+            <hr/>
+            info: - Используется для получения информации о веб-сайте. Например, info:example.com покажет информацию о
+                сайте example.com.
+            <hr/>
+            file: - Позволяет искать конкретные файлы на веб-серверах. Например, file:passwords.txt может помочь найти
+                файл с паролями.
+             <hr/>
+                    ext: - Используется для поиска страниц с определенным расширением файла. Например, ext:php ищет страницы с PHP-расширением.
+            <hr/>
+            allinurl: - Используется для поиска страниц, в URL которых встречаются все указанные слова или фразы. Например, allinurl:security breach найдет страницы, где в URL встречаются оба эти слова.
+            <hr/>
+            related: - Позволяет найти веб-сайты, связанные с определенным сайтом. Например, related:example.com найдет сайты, связанные с example.com.
+            <hr/>
+            info: - Используется для получения информации о веб-сайте. Например, info:example.com покажет информацию о сайте example.com.
+            <hr/>
+            cache: - Позволяет просматривать кэшированные версии веб-страницы. Например, cache:example.com покажет кэшированные страницы с сайта example.com.
+            <hr/>
+            file: - Позволяет искать конкретные файлы на веб-серверах. Например, file:passwords.txt может помочь найти файл с паролями.
+            <hr/>
+            phonebook: - Используется для поиска номеров телефонов в онлайн-каталогах и базах данных. Например, phonebook:John Smith New York попытается найти телефонные номера для человека с этим именем в Нью-Йорке.
+            <hr/>
+            map: - Позволяет найти карты и связанные с ними ресурсы. Например, map:New York покажет карты, связанные с Нью-Йорком.
+            <hr/>
+            infosec: - Используется для поиска страниц, связанных с информационной безопасностью. Например, infosec best practices найдет страницы с лучшими практиками в области информационной безопасности.
+            <hr/>
+            site:gov: - Ограничивает поиск результатами только с официальных правительственных сайтов. Например, site:gov cybersecurity ищет информацию о кибербезопасности на государственных сайтах.
+                </pre>
+
+            </details>
+
+            <form onSubmit={handleSubmit}>
+                <div className={" newStyle_container"} style={{margin: '0 auto', width: '100%'}}>
+                    <div style={{display: 'flex'}}>
+                        <input
+                            className={"Osint_input"}
+                            type={"search"}
+                            name="url"
+                            ref={inputs}
+                            value={formData.url}
+                            onChange={handleChange}
+                            placeholder={"OSINT үшін URL мекенжайыңызды енгізіңіз"}
+                        />
+                        <a className={"submit--btn"} onClick={UrlHandler}>
+                            <i className="fa fa-terminal" aria-hidden="true"></i>
+                        </a>
+                    </div>
 
                     {loading == "load" ? <div className={"load"}>
                         <img src={load}/>
@@ -220,8 +281,12 @@ const OsintInput = () => {
 
 
                     </div> : <div style={{width: "75%", marginTop: "3%"}}></div>}
+
+
+                    <Whois/>
+                    <Lookup/>
                     <h3 className={"osint_subtitle"}>Проект:</h3>
-                    <select name="project" onChange={handleChange}>
+                    <select name="project" className={'newStyle_select'} onChange={handleChange}>
                         {project.map((os) => (
                             <option key={os.id} value={os.id}>{os.name}</option>
                         ))}
@@ -278,17 +343,23 @@ const OsintInput = () => {
 
                     <button className={"btn_add--req"}>Создать отчет по Osint</button>
 
-                    <div>
-                        <h1>Компонент</h1>
 
-                        {Array.from({ length: count }).map((_, index) => (
-                            <Source key={index} />
-                        ))}
-                        <button className={"btn_add--add"} onClick={handleAdd}>Добавить ресурс  <i style={{color: "green"}} className="fa fa-plus"
-                                                                                                 aria-hidden="true"></i>
-                        </button>
-                    </div>
                 </div>
+
+
+                <div className={activePt ? "" : "disablePt"}>
+                    {(id && formData && formData.source && formData.source) ? formData.source.map((s) => (
+                        <Source source={s} key={s.id}/>
+                    )) : null}
+                    {Array.from({length: count}).map((_, index) => (
+                        <Source key={index}/>
+                    ))}
+                    <button className={"btn_add--add"} onClick={handleAdd}>Добавить ресурс <i style={{color: "green"}}
+                                                                                              className="fa fa-plus"
+                                                                                              aria-hidden="true"></i>
+                    </button>
+                </div>
+
                 <details style={{position: 'fixed', bottom: '0', left: '0'}}
                          className={"details-terminal_osint form_osint--div"}>
                     <summary className={"summary-terminal"}>

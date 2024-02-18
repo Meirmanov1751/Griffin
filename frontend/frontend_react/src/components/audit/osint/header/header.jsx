@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 const OsintHeader= () => {
 
     return (
-        <div className={"continer-osint"}>
+        <div >
             <div className={"osint_header"}>
                 <NavLink className={"osint_header-link"} to={'/audit/OSINT'} >Список</NavLink>
                 <NavLink className={"osint_header-link"} to={'new'} >Создать новый отчет</NavLink>

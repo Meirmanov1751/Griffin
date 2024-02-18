@@ -11,10 +11,13 @@ import Customer from "./reducers/customer";
 import Order from "./reducers/order";
 import Osint from "./reducers/osint";
 import Pentest from "./reducers/pentest";
+import Company from "./reducers/company";
+import Project from "./reducers/project";
 
 let reducers = combineReducers({
     executors: Executor,
     customers: Customer,
+    company: Company,
     orders: Order,
     osints: Osint,
     pentests: Pentest,
@@ -22,6 +25,7 @@ let reducers = combineReducers({
     referenceType: ReferenceType,
     bypassSheet: BypassSheet,
     products: Product,
+    projects: Project,
     posts: Posts,
     auth: Auth,
 })

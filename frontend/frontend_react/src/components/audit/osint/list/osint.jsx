@@ -59,7 +59,7 @@ const OsintList = () => {
     }, [dispatch]);
     console.log(osints)
     return (
-        <div className={"continer-osint"}>
+        <div >
             <div>
                 <table className={"tableWrapper"} {...getTableProps()}>
                     <thead>
@@ -75,8 +75,9 @@ const OsintList = () => {
                     {rows.map(row => {
                         prepareRow(row);
                         return (
-                            <tr {...row.getRowProps()}>
-                                <Link className={"tr-link"} to={`osint/${row.original.id}`}>
+                            <Link className={"tr-link"} to={`osint/${row.original.id}`}>
+                                <tr {...row.getRowProps()}>
+
                                     {row.cells.map(cell => {
                                         return (
 
@@ -84,8 +85,9 @@ const OsintList = () => {
 
                                         );
                                     })}
-                                </Link>
-                            </tr>
+
+                                </tr>
+                            </Link>
                         );
                     })}
                     </tbody>

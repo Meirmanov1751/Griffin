@@ -1,27 +1,25 @@
-import React from 'react';
-import instance from "../../../store/api";
-import {useEffect} from "react";
-import {useState} from "react";
+import React, {useEffect} from 'react';
 import Project from "../../../components/audit/home/project/project";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCompany} from "../../../store/action.creators/company";
 
 const AuditHome = () => {
-    const [company, setCompany] = useState({})
-
-    async function getCompanyInfo(){
-        const response = await  instance.get('api/company/company/');
-        setCompany(response.data.results[0])
-    }
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getCompanyInfo()
-    }, [])
+        dispatch(fetchCompany());
+    }, []);
+
+    const company = useSelector(state => state.company)
 
     return (
-        <div>
+        <div className={'newStyle_container'}>
             <div className={'home_audit'}>
-                <img className={'home_logo'} src={company.logo}/>
-                <h1 className={'company_name'}>Название компании для аудита: "<cite>{company.name}</cite>"</h1>
-                <cite className={'title-h2'} ><p>Ведет тех поддержку: {company.leader}</p></cite>
+                <img className={'home_logo'} src={company.items[0] && company.items[0].logo}/>
+                <h1 className={'company_name'}>Название компании для аудита:
+                    "<cite>{company.items[0] && company.items[0].name}</cite>"</h1>
+                <cite className={'title-h2_r'}><p>Ведет тех поддержку:
+                    "<cite>{company.items[0] && company.items[0].leader}</cite>"</p></cite>
             </div>
 
             <Project/>

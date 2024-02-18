@@ -1,21 +1,42 @@
 .osint_header {
     display: flex;
     justify-content: space-between;
-    border: 1px solid #3a3a3a;
-    border-right: none;
-    border-left: none;
 }
 
 .osint_header-link {
-    color: #3a3a3a;
-    font-size: 25px;
+    color: #000;
+
+    font-family: HelveticaNeueCyr;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
 }
 .continer-osint{
     padding: 0 30px;
 }
-.tr-link{
+.tr-link:nth-child(even){
+    display: inline-table;
     color: #3a3a3a;
+    min-height: 30px !important;
+    height: 30px !important;
 }
+
+.tr-link:nth-child(odd){
+    display: inline-table;
+    color: #3a3a3a;
+    height: 30px !important;
+    background-color: #DDF0FA;
+}
+
+ td{
+    max-height: 30px;
+    white-space: nowrap;       /* Запрещает перенос слов */
+    overflow: hidden;          /* Скрывает текст, который не помещается в контейнере */
+    text-overflow: ellipsis;   /* Добавляет многоточие (...) */
+    width: 50px;
+}
+
 
 .tableWrapper {
     display: flex;
@@ -35,7 +56,7 @@ table {
 }
 
 th, td , tr{
-    width: 100%; /* Сбросьте автоматическую ширину ячеек */
+    width: 300px; /* Сбросьте автоматическую ширину ячеек */
 }
 
 th, td , tr{
@@ -64,3 +85,39 @@ td {
     padding: 5px 10px;
 }
 
+
+.edit_h2{
+    display: flex;
+    justify-content: end;
+}
+
+.edit_btn {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    color: #097CB4;
+    font-weight: 600;
+    font-size: 17px;
+    border: 1px solid;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+
+.project_h1 {
+    font-size: 24px; /* Размер заголовка */
+    font-weight: bold; /* Жирный шрифт */
+    text-decoration: underline; /* Подчеркивание */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.newStyle_container p {
+    margin-left: 20px;
+    text-align: left;
+    font-size: 16px; /* Размер абзаца */
+    line-height: 1.4; /* Междустрочное расстояние */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+b {
+
+    font-weight: bold; /* Жирный шрифт для жирных текстов */
+}

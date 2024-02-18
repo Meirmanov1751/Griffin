@@ -21,7 +21,7 @@ const CreateProductPage = () => {
         };
         instance.post('/api/product/product/', payload)
             .then(response => {
-                debugger
+
                 console.log(response.data);
                 // здесь можно выполнить перенаправление на страницу продукта или другую страницу
             })

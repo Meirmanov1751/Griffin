@@ -88,7 +88,9 @@ INSTALLED_APPS = [
     'project',
     'OWASP',
     'PTES',
-    'ISSAF'
+    'ISSAF',
+    'security',
+    'PCOPT'
 ]
 
 MIDDLEWARE = [

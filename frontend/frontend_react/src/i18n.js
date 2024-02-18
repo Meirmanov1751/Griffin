@@ -8,17 +8,15 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng: 'en', // Язык по умолчанию, если перевод для выбранного языка не найден
-        debug: true, // Режим отладки для вывода информации в консоль
+        fallbackLng: 'en',
+        debug: true,
         interpolation: {
-            escapeValue: false, // Позволяет вставлять HTML-теги в переводы
+            escapeValue: false,
         },
         backend: {
-            // Настройки для загрузки переводов
             loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
         detection: {
-            // Определение языка пользователя
             order: ['querystring', 'cookie', 'localStorage', 'navigator'],
             caches: ['cookie'],
         },

@@ -10,12 +10,12 @@ from .paginations import DocumentPagination
 class ReferenceViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
                       mixins.UpdateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     queryset = Reference.objects.all()
-    pagination_class = DocumentPagination
+    #pagination_class = DocumentPagination
     serializer_class = ReferenceSerializer
     # permission_classes = [IsForMany]
 
 class ReferenceTypeViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
                       mixins.UpdateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     queryset = ReferenceType.objects.all()
-    pagination_class = DocumentPagination
+    #pagination_class = DocumentPagination
     serializer_class = ReferenceTypeSerializer

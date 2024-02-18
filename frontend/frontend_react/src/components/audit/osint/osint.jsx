@@ -4,10 +4,11 @@ import OsintHeader from "./header/header";
 import './osint.css'
 
 const Osint = () => {
+    localStorage.setItem('osintNewId', '')
 
     return (
-        <div >
-            <h1 className={"title"}>OSINT</h1>
+        <div className={"newStyle_container"}>
+            <h1 className={"title"}>Разведка по открытым источникам (Open-source intelligence)</h1>
             <OsintHeader/>
             <Outlet></Outlet>
         </div>

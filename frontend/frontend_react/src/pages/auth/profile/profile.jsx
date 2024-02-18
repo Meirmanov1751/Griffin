@@ -10,7 +10,7 @@ const ProfileForm = () => {
     var user = useSelector(state => state.auth.user);
     var customers = useSelector(state => state.customers.items);
     var executors = useSelector(state => state.executors.items);
-    debugger
+
     useEffect(() => {
         dispatch(fetchCustomer());
     }, [dispatch]);

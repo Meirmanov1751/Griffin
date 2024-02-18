@@ -1,37 +1,63 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import instance from "../../../../../../store/api";
 
-const Source = () => {
-    var [source, setSource] = useState({
+const Source = (props) => {
+
+    var [sourceData, setSource] = useState({
         source_name: '',
         source_url: '',
         source_description: '',
-        event_date: '',
         event_location: '',
         event_description: '',
         document_title: '',
         document_type: '',
-        document_file: null,
-        latitude: '',
-        longitude: '',
+
         location_address: '',
         location_description: '',
         keyword: '',
         note_text: '',
     })
 
-    function handleChange(event){
-        const { name, value, type, files } = event.target;
-        setSource((prevState) => ({
-            source: {
-                ...prevState.source,
-                [name]: type === 'file' ? files[0] : value, // Учтите, что для файлов используется files[0]
-            },
-        }));
+    useEffect(() => {
+        if (props.source) {
+            setSource(props.source)
+        }
+    }, [])
+
+    function sourceChange(event) {
+        const {name, value, type, files} = event.target;
+        setSource({
+            ...sourceData,
+            [name]: value,
+        });
+    };
+    const [adding, setAdding] = useState(false)
+    const sourceSubmit = async (e) => {
+        setAdding(true)
+        e.preventDefault();
+        if (!props.source) {
+            try {
+                const response = await instance.post('api/osint/source/', Object.assign({osint: localStorage.getItem('osintNewId')}, sourceData));
+                setAdding(false)
+            } catch (error) {
+                console.error(error);
+            }
+        } else {
+            try {
+                const response = await instance.put('api/osint/source/' + props.source.id + '/', Object.assign({osint: localStorage.getItem('osintNewId')}, sourceData));
+                setAdding(false)
+            } catch (error) {
+                // Обработка ошибок при отправке запроса
+                console.error(error);
+            }
+        }
+
     };
 
     return (
-        <div className="pentest-section">
-            <h2>Добавить источник</h2>
+        <div style={{margin: '20px auto', width: '100%'}}
+             className={adding ? 'adding newStyle_container' : " newStyle_container"}>
+            <h1 className={'title-h1'}>Добавить источник</h1>
             <form>
                 <div className="form-group">
                     <label>Название источника</label>
@@ -39,8 +65,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="source_name"
-                        value={source.source_name}
-                        onChange={handleChange}
+                        value={sourceData.source_name}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -50,8 +76,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="source_url"
-                        value={source.source_url}
-                        onChange={handleChange}
+                        value={sourceData.source_url}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -60,8 +86,8 @@ const Source = () => {
                     <textarea
                         className={"Osint_textarea"}
                         name="source_description"
-                        value={source.source_description}
-                        onChange={handleChange}
+                        value={sourceData.source_description}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -71,8 +97,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="date"
                         name="event_date"
-                        value={source.event_date}
-                        onChange={handleChange}
+                        value={sourceData.event_date}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -82,8 +108,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="event_location"
-                        value={source.event_location}
-                        onChange={handleChange}
+                        value={sourceData.event_location}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -92,8 +118,8 @@ const Source = () => {
                     <textarea
                         className={"Osint_textarea"}
                         name="event_description"
-                        value={source.event_description}
-                        onChange={handleChange}
+                        value={sourceData.event_description}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -103,8 +129,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="document_title"
-                        value={source.document_title}
-                        onChange={handleChange}
+                        value={sourceData.document_title}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -114,8 +140,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="document_type"
-                        value={source.document_type}
-                        onChange={handleChange}
+                        value={sourceData.document_type}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -125,7 +151,7 @@ const Source = () => {
                         className={"Osint_input"}
                         type="file"
                         name="document_file"
-                        onChange={handleChange}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -135,8 +161,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="latitude"
-                        value={source.latitude}
-                        onChange={handleChange}
+                        value={sourceData.latitude}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -146,8 +172,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="longitude"
-                        value={source.longitude}
-                        onChange={handleChange}
+                        value={sourceData.longitude}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -157,8 +183,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="location_address"
-                        value={source.location_address}
-                        onChange={handleChange}
+                        value={sourceData.location_address}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -167,8 +193,8 @@ const Source = () => {
                     <textarea
                         className={"Osint_textarea"}
                         name="location_description"
-                        value={source.location_description}
-                        onChange={handleChange}
+                        value={sourceData.location_description}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -178,8 +204,8 @@ const Source = () => {
                         className={"Osint_input"}
                         type="text"
                         name="keyword"
-                        value={source.keyword}
-                        onChange={handleChange}
+                        value={sourceData.keyword}
+                        onChange={sourceChange}
                     />
                 </div>
 
@@ -188,12 +214,12 @@ const Source = () => {
                     <textarea
                         className={"Osint_textarea"}
                         name="note_text"
-                        value={source.note_text}
-                        onChange={handleChange}
+                        value={sourceData.note_text}
+                        onChange={sourceChange}
                     />
                 </div>
 
-                <button className={"metodology_add"}  type="submit">Создать</button>
+                <button className={"metodology_add"} onClick={sourceSubmit}>Создать</button>
             </form>
         </div>
     );

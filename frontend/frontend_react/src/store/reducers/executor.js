@@ -33,7 +33,7 @@ const error = (state = null, action) => {
             return action.payload;
         case FETCH_EXECUTORS_REQUEST:
         case FETCH_EXECUTORS_SUCCESS:
-            return null;
+            return () => {};
         default:
             return state;
     }

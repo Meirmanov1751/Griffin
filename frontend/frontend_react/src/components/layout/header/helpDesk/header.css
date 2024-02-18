@@ -30,9 +30,10 @@
     display: flex;
 }
 .user_circl{
-    width: 25px;
-    font-size: 25px !important;
-    color: white;
+    width: 14px;
+    padding: 2px;
+    font-size: 14px !important;
+    color: #151515;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -66,8 +67,8 @@
 
 .nav-link {
     cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-size: 18px;
+    padding: 2px;
+    font-size: 14px;
     color: #333333;
     transition: color 0.3s ease-in-out;
     text-decoration: none;

@@ -4,4 +4,4 @@ from .views import BypassSheetViewSet
 
 router = DefaultRouter()
 
-router.register('bypassSheet/bypassSheet', BypassSheetViewSet)
+router.register('security/bypassSheet', BypassSheetViewSet)
