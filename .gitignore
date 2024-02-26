@@ -1,3 +1,4 @@
 ./qz 3.0.docx
 
-/backend/qz3_backend/venv
+./backend/qz3_backend/venv
+./frontend/frontend_react/.idea

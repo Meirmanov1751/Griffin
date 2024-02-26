@@ -9,9 +9,9 @@ RUN apt-get update \
     && apt-get --assume-yes install build-essential gcc python3-dev musl-dev
 
 RUN pip install --upgrade pip
-COPY requirments.txt ./
+COPY requirements.txt ./
 
-RUN pip install -r requirments.txt
+RUN pip install -r requirements.txt
 COPY . .
 
 EXPOSE 8000
