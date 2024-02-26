@@ -28,7 +28,7 @@ from OWASP.urls import router as OWASP_router
 from ISSAF.urls import router as ISSAF_router
 from PTES.urls import router as PTES_router
 from PCOPT.urls import router as PCOPT_router
-from security.urls import router as security_router
+# from security.urls import router as security_router
 
 from two_factor.urls import urlpatterns as tf_urls
 
@@ -61,7 +61,7 @@ router.registry.extend(OWASP_router.registry)
 router.registry.extend(ISSAF_router.registry)
 router.registry.extend(PTES_router.registry)
 router.registry.extend(PCOPT_router.registry)
-router.registry.extend(security_router.registry)
+# router.registry.extend(security_router.registry)
 
 urlpatterns = [
                   path('', base),
