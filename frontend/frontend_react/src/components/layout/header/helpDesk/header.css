@@ -1,0 +1,105 @@
+.logo{
+    padding: 3px 5px;
+    color: white;
+    width: 100px;
+}
+
+
+.header {
+    background-color: #848484;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.login-lable{
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border: 1px solid #777777;
+}
+.user_circl-il{
+    display: flex;
+}
+.user_circl{
+    width: 14px;
+    padding: 2px;
+    font-size: 14px !important;
+    color: #151515;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.user_circl:hover{
+    color: #272822;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.nav-cont-ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-cont-ul-logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+
+}
+
+.nav-link {
+    cursor: pointer;
+    padding: 2px;
+    font-size: 14px;
+    color: #333333;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.show {
+    display: flex !important;
+    flex-basis: auto !important;
+}
+
+.login-btn{
+    color: #fff;
+    text-decoration-line: none;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+}
