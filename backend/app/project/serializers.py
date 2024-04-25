@@ -20,11 +20,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'pentest',
-            'osints',
-            'policy',
-            'standard',
-            'procedure',
-            'bpassSheet',
+            'osints'
         ]
 
 

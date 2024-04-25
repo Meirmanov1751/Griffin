@@ -1,8 +1,10 @@
-FROM node:19.5.0-alpine
+FROM node:20.5.0-alpine
 
 WORKDIR ./qz3_front
 
 COPY package*.json .
+
+RUN npm install -g npm
 
 RUN npm install
 

@@ -1,7 +1,8 @@
 version: '3'
 services:
+
   django:
-    build: ./backend/qz3_backend
+    build: ./backend/app
     ports:
       - "8000:8000"
 
@@ -14,3 +15,11 @@ services:
     image: kalilinux/kali-rolling
     container_name: kali-container
     tty: true
+
+  nginx:
+    build: ./backend/nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - django
+

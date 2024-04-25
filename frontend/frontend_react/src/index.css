@@ -322,7 +322,8 @@
 }
 .home_logo
 {
-    margin-bottom: 50px;
+    margin: 50px auto;
+    display: block;
     width: 45%;
 }
 .icon_terminal

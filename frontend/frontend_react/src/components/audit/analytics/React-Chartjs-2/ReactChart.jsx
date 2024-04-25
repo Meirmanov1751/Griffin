@@ -8,7 +8,7 @@ Chart.register(CategoryScale);
 
 const LineChart = () => {
     const dispatch = useDispatch();
-    let pentests = useSelector((state:any) => state.pentests)
+    let pentests = useSelector((state) => state.pentests)
 
     useEffect(() => {
         dispatch(fetchPentest());
@@ -18,7 +18,6 @@ const LineChart = () => {
         let date = new Date(item.created_at)
         return 1 === date.getMonth() + 1
     }).length
-
 
     let second = pentests.items.filter((item) => {
         let date = new Date(item.created_at)

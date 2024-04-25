@@ -38,7 +38,7 @@
                             return errors;
                         }}
                         onSubmit={(values, {setSubmitting}) => {
-                            dispatch(login(values.username, values.password));
+                            dispatch(login(values.username, values.password))
 
                             setSubmitting(false);
                         }}>

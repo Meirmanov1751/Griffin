@@ -8,7 +8,7 @@ import {Provider} from "react-redux";
 import {store} from "./store/store";
 
 // @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root : ReactDOM.Root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>

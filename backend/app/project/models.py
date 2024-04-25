@@ -4,10 +4,6 @@ from company.models import Company
 
 
 # Create your models here.
-class Project:
-    pass
-
-
 class Project(models.Model):
     logo = models.FileField(upload_to='logo/', null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True,
